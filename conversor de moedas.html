@@ -6,23 +6,52 @@
     <title>Conversor de Moedas</title>
 
 
- <body>         
-   <h1>Conversor de Moedas</h1>
 
-   <div class = moedas> 
-     <input type="number" id="valor" placeholder="Valor">
-     <select id="moeda" placeholder="Moeda">
-       <option value="Dólar">Dólar</option>
-       <option value="Libra">Libra</option>
-       <option value="Real">Real</option>
-       <option value="Euro">Euro</option>
-     </select>
-     <button onclick="Calcular()">Calcular</button>
-   </div>
+   <body>         
+     <h1>Conversor de Moedas</h1>
+
+      <div class = converter> 
+        <input type="number" id="valor" placeholder="Valor em real (R$)">
+         <select id="moeda" placeholder="Moeda">
+           <option value="Dólar">Dólar</option>
+           <option value="Libra">Libra</option>
+           <option value="Real">Real</option>
+           <option value="Euro">Euro</option>
+           </select>
+         <button onclick="Converter()">Converter</button>
+
+         <h3 id=Resultado></h3>
+      </div>
+
+      <script> 
+        const taxas = {
+         Dólar: 0.19,
+         Euro: 0.17,
+         Libra: 6.19 
+        };
+
+        function Converter() {
+         const valor = parseFloat(document.getElementById('valor').value);
+         const moeda = document.getElementById('moeda').value;
+         const resultado = document.getElementById('Resultado');
+
+         if (isNaN(valor) || valor <= 0) {
+          resultado.textContent = 'Por favor, insira um valor para ser convertido'
+          return;
+         }
+
+         const taxa=taxas[moeda];
+         const convertido = valor * taxa;
+          
+         resultado.textContent = `${valor.toFixed(2)} Real = ${convertido.toFixed(2)} ${moeda}`;
+
+        }
+           
+      </script>
       
 
   
-  </body>
+    </body>
 </head>
 
 
