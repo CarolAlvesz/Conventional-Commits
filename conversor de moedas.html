@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
-<head>
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de Moedas</title>
 
+    <style>
+        body{
+         background-color: rgba(63, 17, 3, 0.822);
+         margin: 60px
+        }
 
+        h1{
+         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+         font-size: 60px;
+         padding: 50px;
+         text-align: left;
+        }
+
+        input{
+         width: 40%;
+         height: 40px;
+         padding: 10px;
+         border-radius: 10px;
+         font-size: 15px;
+
+        
+
+        }
+
+        select{
+          width: 20%;
+          height: 63px;
+          padding: 10px;
+          border-radius: 10px;
+          font-size: 15px;
+       
+          
+
+        }
+
+        button{
+          background-color: black;
+          color: whitesmoke;
+          cursor: pointer;
+          width: 60%;
+          margin-top: 30px;
+          height: 70px;
+          font-size: 20px;
+          font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+        }
+
+        h3{
+           padding-left: 350px;
+           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           font-size: 40px;
+
+        }
+
+
+
+
+
+    </style>
 
    <body>         
      <h1>Conversor de Moedas</h1>
@@ -15,10 +74,10 @@
          <select id="moeda" placeholder="Moeda">
            <option value="Dólar">Dólar</option>
            <option value="Libra">Libra</option>
-           <option value="Real">Real</option>
            <option value="Euro">Euro</option>
-           </select>
-         <button onclick="Converter()">Converter</button>
+         </select>
+          
+          <button onclick="Converter()">Converter</button>
 
          <h3 id=Resultado></h3>
       </div>
@@ -35,15 +94,14 @@
          const moeda = document.getElementById('moeda').value;
          const resultado = document.getElementById('Resultado');
 
-         if (isNaN(valor) || valor <= 0) {
-          resultado.textContent = 'Por favor, insira um valor para ser convertido'
-          return;
-         }
+          if (isNaN(valor) || valor <= 0) {
+          alert('Por favor, insira um valor para ser convertido!')
+          }
 
          const taxa=taxas[moeda];
          const convertido = valor * taxa;
           
-         resultado.textContent = `${valor.toFixed(2)} Real = ${convertido.toFixed(2)} ${moeda}`;
+         resultado.textContent = `${valor.toFixed(2)} reais = ${convertido.toFixed(2)} ${moeda}`;
 
         }
            
@@ -52,42 +110,7 @@
 
   
     </body>
-</head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ </head>
 
 
 </html>
