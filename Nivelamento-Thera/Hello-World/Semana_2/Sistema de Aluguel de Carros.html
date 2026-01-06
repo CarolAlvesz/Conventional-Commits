@@ -1,0 +1,157 @@
+<!DOCTYPE html> 
+<html  lang="pt-BR">
+  
+  <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sistema de Aluguel de Carros </title>
+
+  </head>
+
+   <body>
+     <header>
+       <style>
+         header {
+           background-color: #000000ff;
+           padding: 100px 0;
+           text-align: left;
+         }
+
+         body { 
+             margin: 0;
+             font-family: Arial, sans-serif;
+             background-color: #289191ff;
+             padding: 20px;
+             margin-top: 50px;
+         
+         }
+
+         h1 {
+           color: #ffffffff;
+           margin: 0;
+           padding-left: 90px;
+           text-align: center;
+         }
+
+         p {
+           color: #ffffffff;
+           font-size: 18px;
+           padding-left: 90px;
+           text-align: center;
+           margin-top: 10px;
+         }
+
+         button {
+           background-color: #ffffffff;
+           color: #052f52ff;
+           padding: 10px 20px;
+           cursor: pointer;
+            
+         }
+
+       </style>
+            
+       <h1>Sistema de Aluguel de Carros</h1>
+
+       <p> Bem-vindo ao nosso sistema de aluguel de carros! Aqui você pode alugar o carro dos seus sonhos com facilidade e convenincia. Explore nossa ampla seleção de veículos, escolha o que melhor se adapta às suas necessidades e aproveite tarifas competitivas. Nossa plataforma intuitiva garante uma experiência de aluguel sem complicações, desde a escolha do carro até a devoluo. Alugue conosco hoje e descubra a liberdade de dirigir!</p>
+
+      </header>
+      
+
+      <form>
+         <h3>Informe o seu nome</h3>
+         <label for="Nme:"></label>
+         <input type="text" id="nome" name="nome">
+      </form>
+      <form> 
+         <h3>Informe sua idade</h3>
+         <label for="Idade:"></label> 
+         <input type=number id="idade" name="idade">
+      </form>
+      <form>
+         <h3>Informe seu CPF</h3>
+         <label for="CPF"></label>
+         <input type="number" id="cpf" name="cpf">
+      </form>
+      <form>
+         <h3>Informe sua CNH</h3>
+         <label for="CNH"></label>
+         <input type="number" id="cnh" name="cnh">
+      </form>
+      <form> 
+         <h3>Informe a placa do carro</h3>
+         <label for="Placa de Carro:"></label>
+         <input type="text" id="placa" name="placa">
+      </form>
+      <h3>Selecione o modelo do carro</h3>
+      <select id="modelo">
+          <option value="">Selecione um modelo</option>
+          <option value="Sedan"> Sedan - R$150/dia</option>
+          <option value="SUV"> SUV - R$175/dia</option>
+          <option value="Hacth"> Hatch - R$145/dia</option>
+         <option value="Minivan"> Minivan - R$170/dia</option>
+         <option value="Picape"> Picape - R$180/dia</option>
+      </select>
+      <form>
+         <h3>Informe a quantidade de dias para aluguel</h3>
+         <label for="Dias de Aluguel:"></label>
+         <input type="number" id="dias" name="dias">
+      </form>
+      <button id="calcular">Calcular Valor Total</button>  
+
+      <script>
+
+         document.getElementById("calcular").addEventListener("click", function(event) {
+            event.preventDefault();
+            
+            let idade = parseInt(document.getElementById("idade").value);
+            let modelo = document.getElementById("modelo").value;
+            let dias = parseInt(document.getElementById("dias").value);
+            let valorDiario = 0;
+
+            if (isNaN(idade) || idade < 18) {
+               alert("Desculpe, você precisa ter pelo menos 18 anos para alugar um carro.");
+               return;
+            }
+
+            switch(modelo) {
+               case "Sedan":
+                  valorDiario = 150;
+                  break;
+               case "SUV":
+                  valorDiario = 175;
+                  break;
+               case "Hacth":
+                  valorDiario = 145;
+                  break;
+               case "Minivan":
+                  valorDiario = 170;
+                  break;
+               case "Picape":
+                  valorDiario = 180;
+                  break;
+               default:
+                  alert("Por favor, selecione um modelo de carro válido.");
+                  return;
+            }
+
+            if (isNaN(dias) || dias <= 0) {
+               alert("Por favor, informe uma quantidade válida de dias para aluguel.");
+               return;
+            }
+
+            let valorTotal = valorDiario * dias;
+             alert("O valor total do aluguel do carro " + modelo + " por " + dias + " dias  R$" + valorTotal + ".");
+             
+         });
+
+           
+
+
+         
+      </script> 
+
+
+  </body>
+
+</html>
