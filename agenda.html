@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda de Contatos</title>  
+
+ <body> 
+    <header> 
+        <style>
+          *{
+            margin : 0;
+            padding : 0;
+            box-sizing : border-box;
+          }  
+            
+          body{
+            font-family : 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+            background-color : #74b0ff;
+            padding : 30px;
+          }
+             
+            h1{
+                text-align : center;
+                margin-bottom : 20px;
+                color : #000000;
+            }
+
+            .contatos{
+                display : flex;
+                justify-content : center;
+                gap : 10px;
+                margin-bottom : 20px;
+            }
+
+            input{
+                margin-bottom : 20px;
+                padding : 10px;
+                border : 2px solid #000000;
+                border-radius : 5px;
+            }
+
+            button{
+                margin-bottom: 20px;
+                padding : 20px 10px;
+                border : none;  
+                border-radius : 5px;
+                background-color : #000000;
+                color : #ffffff;
+                cursor : pointer;
+                
+            }
+
+           h2{
+               margin-top: 80px;
+                text-align : center;
+                margin-bottom : 10px;
+                color : #000000;
+           }
+           
+           table{
+             width : 100%;
+             border-collapse : collapse;
+             margin-top : 20px;
+             text-align: center;
+           }
+            
+          table th{
+             padding : 10px;
+             border : 2px solid #000000;
+          }
+            table td{
+             padding : 16px;
+             text-align : center;
+             border-bottom : 2px solid #000000;
+             border-radius: 2px;
+         }
+
+         </style> 
+
+    <h1>Agenda de Contatos</h1>
+    <div class="contatos">
+        <input type="text" id="nome" placeholder="Nome">
+        <input type="text" id="telefone" placeholder="Telefone">
+        <input type="email" id="email" placeholder="Email">
+        <button onclick="adicionarContato()"> Adicionar Contato </button>
+    </div>
+        
+   <div>    
+    <h2> Lista de Contatos </h2>
+    <ul id="lista-contatos"></ul>
+     <table>    
+        <th> Nome </th>    
+        <th> Telefone</th>
+        <th> Email </th>
+     </table>
+   </div>     
+    </header>
+    <script>
+        function adicionarContato() {
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const email = document.getElementById('email').value;
+
+            if (nome && telefone && email) {
+                const tabela = document.querySelector('table');
+
+                const novaLinha = tabela.insertRow();
+
+                const celulaNome = novaLinha.insertCell(0);
+                const celulaTelefone = novaLinha.insertCell(1);
+                const celulaEmail = novaLinha.insertCell(2);
+
+                celulaNome.textContent = nome;
+                celulaTelefone.textContent = telefone;
+                celulaEmail.textContent = email;
+
+                celulaAcoes.innerHTML = `
+                  <button onclick="editarContato(this)">Editar</button>
+                  <button class="remover" onclick="removerContato(this)">Remover</button>
+                `;
+
+                document.getElementById('nome').value = '';
+                document.getElementById('telefone').value = '';
+                document.getElementById('email').value = '';
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        }
+
+        function removerContatos() {
+            const linha = botao.closest('tr');
+            const nome = linha.cells[0].textContent;
+
+            if(confirm ('Certeza que deseja remover o contato?')) {
+              linha.remove();
+            }
+        }  
+
+        function editarContato() {
+          //botao para editar
+          const linha = botao.closest('tr');
+
+          const nomeAtual = linha.cells[0].textContent;
+          const telefoneAtual = linha.cells[1].textContent;
+          const emailAtual = linha.cells[2].textContent;
+
+          const nomeNovo = prompt('Novo nome:', nomeAtual) || nomeAtual;
+          const telefoneNovo = prompt('Novo telefone:', telefoneAtual) || telefoneAtual;
+          const emailNovo = prompt('Novo e-mail:', emailAtual) || emailAtual;
+
+          linha.cells[0].textContent = nomeNovo;
+          linha.cells[1].textContent = telefoneNovo;
+          linha.cells[2].textContent = emailNovo;
+
+          alert('Contato "${novoNome}" atualizado com sucesso!');
+        }
+
+
+
+        
+
+      
+        
+
+    </script>
+
+ </body>
+
+</head>
+
+
+</html>
