@@ -4,7 +4,7 @@ Adotar o Conventinal Commits e melhorar as funções dentro do código, dessa fo
 ## Conteúdo Abordado:
 Conventinal Commits e Funções
 
-## Projetos Desemvolvidos: 
+## Projetos Desenvolvidos: 
 Foram propostos dois projetos: Agenda.html e conversor de moedas.html, sendo elaborados pelas linguagens JavaScript, HTML e Css. 
 
 No programa Agenda.html, o usuário pode inserir o nome, numero e telefone e email que deseja. Estes dados, ao serem salvos, são depositados em uma tabela onde o usuário pode vizualizar. Estas e outras propriedades foram realizadas através das funções dentro do código.
